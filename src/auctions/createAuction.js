@@ -17,7 +17,7 @@ async function createAuction(event, context) {
   }
 
   const params = {
-    TableName : 'AuctionsTable',
+    TableName : process.env.AUCTION_TABLE_NAME,
     Item: auction
   };
 
