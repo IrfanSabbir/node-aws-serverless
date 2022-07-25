@@ -4,12 +4,11 @@ import AWS from 'aws-sdk';
 const documentClient = new AWS.DynamoDB.DocumentClient();
 
 async function getAuctionById(event, context) {
-  // const eventParams = JSON.parse(event.);
   try {    
     const { id } = event.pathParameters
     const params = {
       TableName : process.env.AUCTION_TABLE_NAME,
-      Key: { id }
+      Key: { id },
     };
   
     const result =  await documentClient.get(params).promise();
